@@ -75,7 +75,10 @@
 	else {
 		for (int i=0; i<[pairs count]; i++) {
 			Pair *pair = [pairs objectAtIndex:i];
-			[self createItemsFromHosts:(NSArray*)[pair right] withTitle:(NSString*)[pair left]];
+            NSString *pairLeft = [pair left];
+            if([pairLeft isEqualToString:@"Combined"]) {
+                [self createItemsFromHosts:(NSArray*)[pair right] withTitle:(NSString*)[pair left]];
+            }
 		}
 	}
 }
